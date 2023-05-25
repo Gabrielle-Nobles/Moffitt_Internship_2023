@@ -1,4 +1,4 @@
 # Moffitt_Internship_2023
-![A figure of RawcCount Protocol and H5 Protocol.]![image](https://github.com/Gabrielle-Nobles/Moffitt_Internship_2023/assets/97853225/ae6ad0b0-e7b5-468a-90cc-2138e962bd26)
+![Figure Of RawCount and H5 Protocol](https://github.com/Gabrielle-Nobles/Moffitt_Internship_2023/assets/97853225/d0e210b2-0dc6-4b6e-b07b-b05fb3b24cb2)
 
 

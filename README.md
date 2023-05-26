@@ -25,10 +25,12 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 - During the scaling process, the variables specified in 'vars.to.regress' (nFeature_RNA and percent.mt in this case) are regressed out. This means that any variation in the gene expression values that can be attributed to these variables is removed.
 5. Prinicpal Component Analysis (PCA)
 - Conduct PCA on the scaled data to reduce the dimensionality of the dataset while preserving the most significant sources of variation. This step helps identify major sources of heterogeneity within the dataset. 
-7. Nearest Neighbor 
+6. Nearest Neighbor 
 - Compute the nearest neighbors for each cell in the reduced PCA space. This step helps identify cells that are likely to be biologically similar based on their expression profiles
-9. SNN clustering 
+7. SNN clustering 
 - Perform clustering of the cells using the shared nearest neighbor (SNN) optimization based clustering algorithm. This algorithm group cells into clusters based on their similarity in the PCA space.
+8. Doublet Finder 
+- McGinnis et al.,CellPress.2019.[PMID: 30954475]
 10. Automated Cell Annotation using SingleR and Celldex
 - Leverage external reference datasets and computational tools like SingleR and Celldex to automatically annotate cell types or states. SingleR compares the gene expression of each cell to a reference dataset, while Celldex predicts cell type annotations based on a cell type reference database. These annotations provide biological context to the identified cell clusters.
 ### Output files 

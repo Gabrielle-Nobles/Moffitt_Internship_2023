@@ -10,7 +10,7 @@ The utilization of single-cell RNA sequencing (scRNA-seq) has emerged as a robus
 
 | ------------- | ------------- |
 | Seurat  | patchwork | dplyr | readr| SeuratDisk |
-| SingleR | DoubletFinder | openxlsx | fields| SeuratData|
+| SingleR | DoubletFinder | openxlsx | fields| SeuratData |
 
 ## Protocol 1: Raw Counts 
 ### Input Files 

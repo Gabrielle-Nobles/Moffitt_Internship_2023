@@ -44,12 +44,12 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 - nothern.main and northern.fine
 - blue.main and blue.fine
 7. Manually curated cell annotations (seurat_clusters_gabby_annotations) 
-- H5 Seurat-compliant file 
--- Export the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
+- **H5 Seurat-compliant file** 
+--Export the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
 - **Subset of cell populations**
--- Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
+--Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
 - **H5 ISCVA-compliant file** 
--- The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
+--The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
 
 
 ## Protocol 2: H5 Seurat Protocol 

@@ -6,7 +6,9 @@ The utilization of single-cell RNA sequencing (scRNA-seq) has emerged as a robus
 ## Installation 
 
 ### R dependencies 
-
+| ------------- | ------------- |
+|dplyr | Seurat | patchwork | SeuratData | SeuratDisk |
+| SingleR | DoubletFinder | readr | openxlsx | fields | 
 
 ## Protocol 1: Raw Counts 
 ### Input Files 
@@ -15,23 +17,29 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 1. Quality Control
 - Perform quality control (QC) steps to filter out low-quality cells and genes. QC calculates the percentages of mitochondrial genes and ribosomal protein genes for each cell, and then filters out cells that have high mitochondrial gene content and low detected features in the RNA assay.  
 2. Normalization 
+- Hao et al.,Cell 2021.[PMID: 34062119]
 - After completing the QC steps, it's important to normalize the count matrix to adjust for differences in library sizes and sequencing depth. This is a crucial step in analyzing scRNAseq data because it accounts for variations in library sizes and sequencing depth between individual cells. Normalization ensures that expression values can be compared accurately and eliminates technical biases. 
 - Our method employs the "LogNormalize" parameter, which performs a global-scaling normalization. It divides each gene's expression by the total expression of that gene across all cells, multiplies the data by a default scale factor of 10,000, and log-transforms it. This normalization method is valuable for preserving the relative differences between cells while normalizing gene expression across them.
 3. Cell Cycle Scores
+- Hao et al.,Cell 2021.[PMID: 34062119]
 - To determine cell cycle activity in scRNAseq data, the expression levels of certain genes associated with the cell cycle are analyzed and cell cycle scores are assigned to individual cells.
 4. Scaling Data 
+- Hao et al.,Cell 2021.[PMID: 34062119]
 - Scaling normalizes and transform gene expression values, which helps to remove unwanted technical variation and improve the accuracy of downstream analyses
 - The scaling method used by default is the "LogNormalize" method, which performs a natural logarithm transformation followed by centering and scaling of the gene expression values.
 - During the scaling process, the variables specified in 'vars.to.regress' (nFeature_RNA and percent.mt in this case) are regressed out. This means that any variation in the gene expression values that can be attributed to these variables is removed.
 5. Prinicpal Component Analysis (PCA)
+- Hao et al.,Cell 2021.[PMID: 34062119]
 - Conduct PCA on the scaled data to reduce the dimensionality of the dataset while preserving the most significant sources of variation. This step helps identify major sources of heterogeneity within the dataset. 
 6. Nearest Neighbor 
 - Compute the nearest neighbors for each cell in the reduced PCA space. This step helps identify cells that are likely to be biologically similar based on their expression profiles
 7. SNN clustering 
+- Hao et al.,Cell 2021.[PMID: 34062119]
 - Perform clustering of the cells using the shared nearest neighbor (SNN) optimization based clustering algorithm. This algorithm group cells into clusters based on their similarity in the PCA space.
 8. Doublet Finder 
 - McGinnis et al.,CellPress.2019.[PMID: 30954475]
 10. Automated Cell Annotation using SingleR and Celldex
+- Aran et al.,Nature Immunology.2019.[PMID: 30643263]
 - Leverage external reference datasets and computational tools like SingleR and Celldex to automatically annotate cell types or states. SingleR compares the gene expression of each cell to a reference dataset, while Celldex predicts cell type annotations based on a cell type reference database. These annotations provide biological context to the identified cell clusters.
 ### Output files 
 - **Metadata**
@@ -53,10 +61,18 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 --Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
 - **H5 ISCVA-compliant file** 
 --The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
+## Post Processing: Gene expression 
+### Input File
+The H5 Seurat file typically contains essential information such as the expression matrix, cell metadata, dimensionality reduction results, clustering information, and other annotations relevant to the dataset. Loading the H5 Seurat file ensures that all the necessary data and attributes are available for subsequent analysis steps.
+## Gene expresssion 
+
+### Output Files 
+
+## Post Processing: 1000 Matrix for Umap application 
+### Input File 
 
 
-## Protocol 2: H5 Seurat Protocol 
-### Required Files 
+### Output File 
 
 
 

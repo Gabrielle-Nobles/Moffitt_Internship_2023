@@ -39,11 +39,11 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 4. Resoulutions (integrated_snn_res or RNA_snn_res) 
 5. Umap and Tsne coordinates 
 6. Single R annotations 
-- hpca.main and hpca.fine 
-- dice.main and dice.fine 
-- monacco.main and moncacco.fine 
-- nothern.main and northern.fine
-- blue.main and blue.fine
+-- hpca.main and hpca.fine 
+-- dice.main and dice.fine 
+-- monacco.main and moncacco.fine 
+-- nothern.main and northern.fine
+-- blue.main and blue.fine
 7. Manually curated cell annotations (seurat_clusters_gabby_annotations) 
 - **H5 Seurat-compliant file** 
 -- Export the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.

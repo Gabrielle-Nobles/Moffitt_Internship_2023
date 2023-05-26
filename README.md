@@ -6,9 +6,10 @@ The utilization of single-cell RNA sequencing (scRNA-seq) has emerged as a robus
 ## Installation 
 
 ### R dependencies 
+
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| Seurat  | patchwork | dplyr | readr| SeuratDisk |
+| SingleR | DoubletFinder | openxlsx | fields| SeuratData|
 
 ## Protocol 1: Raw Counts 
 ### Input Files 

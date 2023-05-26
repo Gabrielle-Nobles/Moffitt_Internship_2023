@@ -31,8 +31,26 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 10. Automated Cell Annotation using SingleR and Celldex
 - Leverage external reference datasets and computational tools like SingleR and Celldex to automatically annotate cell types or states. SingleR compares the gene expression of each cell to a reference dataset, while Celldex predicts cell type annotations based on a cell type reference database. These annotations provide biological context to the identified cell clusters.
 ### Output files 
-- ** Metadata 
-- - 
+- **Metadata**
+1. Cell Cycle Score (S.score,G2M.score, and Phase) 
+2. QC percentage (percent.rp and perdent.mt)
+3. Doublets (pANN and DF.classfication) 
+4. Resoulutions (integrated_snn_res or RNA_snn_res) 
+5. Umap and Tsne coordinates 
+6. Single R annotations 
+- hpca.main and hpca.fine 
+- dice.main and dice.fine 
+- monacco.main and moncacco.fine 
+- nothern.main and northern.fine
+- blue.main and blue.fine
+7. Manually curated cell annotations (seurat_clusters_gabby_annotations) 
+- H5 Seurat-compliant file 
+-- Export the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
+- **Subset of cell populations**
+-- Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
+- **H5 ISCVA-compliant file** 
+-- The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
+
 
 ## Protocol 2: H5 Seurat Protocol 
 ### Required Files 

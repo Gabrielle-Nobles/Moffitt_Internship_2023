@@ -7,6 +7,7 @@ The utilization of single-cell RNA sequencing (scRNA-seq) has emerged as a robus
 
 ### R dependencies 
 
+
 ## Protocol 1: Raw Counts 
 ### Input Files 
 To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, it's crucial to have high-quality and compatible input data. The input file should be a raw count matrix of single cells, with each row representing a gene and each column representing a specific cell. The numbers within the matrix indicate the raw expression counts or read counts of genes in each cell. Ensure that the input file is in a compatible format, such as a Comma-Separated Values (CSV) file, tab-delimited text file or a Tab-Seperated Values (TSV) file, as these formats are easily readable and processed by R and the Seurat package. If you have used the CellRanger pipeline to process your scRNAseq data, you should have three input files: matrix (matrix.mtx), barcode (barcode.tsv), and features (features.tsv).

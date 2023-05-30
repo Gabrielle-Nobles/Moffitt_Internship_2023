@@ -64,9 +64,10 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 ### Input File
 The H5 Seurat file typically contains essential information such as the expression matrix, cell metadata, dimensionality reduction results, clustering information, and other annotations relevant to the dataset. Loading the H5 Seurat file ensures that all the necessary data and attributes are available for subsequent analysis steps.
 ## Gene expresssion 
-
 ### Output Files 
-
+1. Gene expression .txt files for each cluster within the default resoultion 
+2. Gene expression for cell type 
+3. Find all Gene
 ## Post Processing: 1000 Matrix for Umap application 
 ### Input File 
 

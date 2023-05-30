@@ -71,7 +71,7 @@ The H5 Seurat file typically contains essential information such as the expressi
 ## Post Processing: 1000 Matrix for Umap application 
 ### Input File 
 - **H5 Seurat-compliant file** 
--- Load in the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
+- - Load in the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
 
 ### Output File 
 - Scaled count matrix

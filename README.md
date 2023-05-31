@@ -64,6 +64,25 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 --Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
 - **H5 ISCVA-compliant file** 
 --The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
+
+## Post Processsing: H5-ISCVA compliant file 
+### Input File 
+- H5 seurat object 
+- Metadata file 
+- Customized ISCVAM H5 file
+## Write H5-ISCVA Compliant Pipeline 
+- Edit the metadata file and seurat_obk@metadata
+1.Open the metadata file and locate the column named "seurat_clusters".
+2.Change the column name from "seurat_clusters" to "Clusters".
+3.Append the following columns from the metadata file to the seurat_obj@meta.data:
+--pANN scores
+--DF.classifications
+--Cell Cycle Scores (S.Score, G2M.Score)
+--t-SNE coordinates
+--QC percentages (percent.rp, percent.mt)
+
+### Output File 
+
 ## Post Processing: Gene expression 
 ### Input File
 The H5 Seurat file typically contains essential information such as the expression matrix, cell metadata, dimensionality reduction results, clustering information, and other annotations relevant to the dataset. Loading the H5 Seurat file ensures that all the necessary data and attributes are available for subsequent analysis steps.

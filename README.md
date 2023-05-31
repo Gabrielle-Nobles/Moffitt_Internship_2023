@@ -75,13 +75,21 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 1. Open the metadata file and locate the column named "seurat_clusters".
 2. Change the column name from "seurat_clusters" to "Clusters".
 3. Append the following columns from the metadata file to the seurat_obj@meta.data:
--- pANN scores
--- DF.classifications
--- Cell Cycle Scores (S.Score, G2M.Score)
--- t-SNE coordinates
--- QC percentages (percent.rp, percent.mt)
+- pANN scores
+- DF.classifications
+- Cell Cycle Scores (S.Score, G2M.Score)
+- t-SNE coordinates
+- QC percentages (percent.rp, percent.mt)
+4. Identify any columns in the metadata file that should be removed to prevent duplicate columns in the H5 file.
+5. Remove the selected columns from the metadata file.
+6. Create a Seurat.list object containing the seurat_obj and the metadata file.
+7. Use the source() function to input the functions from the customized ISCVAM H5 file.
+8. Use the write.h5() function to convert the seurat_list to an H5-ISCVA compliant file.
+9. Check the metadata columns to ensure they are arranged in the correct format for ISCVA.
 
 ### Output File 
+- H5 ISCVA-compliant file 
+
 
 ## Post Processing: Gene expression 
 ### Input File

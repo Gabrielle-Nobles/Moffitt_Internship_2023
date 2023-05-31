@@ -71,10 +71,10 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 - Metadata file 
 - Customized ISCVAM H5 file
 ### Write H5-ISCVA Compliant Pipeline 
-- Edit the metadata file and seurat_obk@metadata
+- Edit the metadata file and seurat_obj@metadata
 1. Open the metadata file and locate the column named "seurat_clusters".
 2. Change the column name from "seurat_clusters" to "Clusters".
-3. Append the following columns from the metadata file to the seurat_obj@meta.data:
+3. Append the following columns from the metadata file to the **seurat_obj@meta.data:**
 - pANN scores
 - DF.classifications
 - Cell Cycle Scores (S.Score, G2M.Score)

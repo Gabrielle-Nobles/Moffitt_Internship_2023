@@ -113,7 +113,12 @@ The H5 Seurat file typically contains essential information such as the expressi
 
 ## Combining multiple count matrices
 ### Input files 
-- 
+- Matrix (matrix.mtx), barcode (barcode.tsv), and features (features.tsv)
+- Metadata for each count matrix 
+### Output Files 
+- Combined data metadata
+- Combined data H5 seurat object
+- Subset of cell populations h5 seuarat objects an metadata  
 
 
 

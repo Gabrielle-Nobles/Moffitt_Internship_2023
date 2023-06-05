@@ -1,8 +1,7 @@
 # Moffitt_Internship_2023
 ![Single Cell RNA-seq Analysis Pipeline and Post-processing h5-ISCVA compliant ](https://github.com/Gabrielle-Nobles/Single_Cell_Brain_Tumor_Atlas/assets/97853225/1b6c6eaf-00f4-4afb-be27-4c7037deb263)
 ![Post Processing gene expression and thousand matrix subset](https://github.com/Gabrielle-Nobles/Single_Cell_Brain_Tumor_Atlas/assets/97853225/c1983c40-f786-4f0d-9107-5d56d04ade04)
-![Combined Data scRNAseq Analysis Pipeline ](https://github.com/Gabrielle-Nobles/Single_Cell_Brain_Tumor_Atlas/assets/97853225/b36346ff-61b5-4edc-9bf0-b35d572db8f7)
-
+![Combine Data scRNAseq Analysis Pipeline](https://github.com/Gabrielle-Nobles/Single_Cell_Brain_Tumor_Atlas/assets/97853225/4600ae97-c63d-476e-9925-b9f4c4006c72)
 
 
 ## Introduction 
@@ -110,6 +109,15 @@ The H5 Seurat file typically contains essential information such as the expressi
 - Raw count matrix 
 - Normalized count matrix 
 - metadat file
+
+
+## Combining multiple count matrices
+### Input files 
+- 
+
+
+
+
 
 
 

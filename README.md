@@ -104,6 +104,49 @@ The H5 Seurat file typically contains essential information such as the expressi
 - **H5 Seurat-compliant file** 
 -- Load in the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
 
+### Steps 
+1. Read in scRNA-seq data for each sample: 
+- Create file paths fro the matrix, barcodes and features files for each sample 
+- Use the 'ReadMTX' function to the load the sparse data into the 'counts" object 
+- Create a Seurat object using the 'CreateSeuratObject' function 
+2. Preform data normalization: 
+- Nomralize the data using the 'NormalizeData' function specifying the normalizatiion method (ex. "LogNormalize") and scale factor.
+3. Perform cell cycle scoring:
+- Use the 'CellCycleScoring' function to calculate cell cycle socres based on cell cycle gene lists (ex. G2M and S phase gene lists) 
+4. Find highly variable features: 
+- Use the 'FindVariableFeatures'  function to identify highly variable features in the data, specifying the selection method (e.g., "vst") and number of features to select 
+5. Scale the data:
+- 'ScaleData' function to scale the data
+6. Perform dimensional reduction and clustering:
+- Use the 'RunPCA' function to perform PCA on the scaled data and set the number of principal components (npcs) 
+7. Perform doblet detection 
+- Use the 'doubletFinder_v3' function to calulate the expected number of doubletes based on the percentage of cells 
+8. Read in the metadata for each sample: 
+- Create a file path for the metadata file 
+- Use the 'read.table' function to read the metadata into a dataframe.
+9. Add columns to the Seurat object consisting of:
+- Manually curated annotations, Patient ID , Sample type, Organ, Organism, Age, Gender, IDH status, Extracted molecule, Extraction protocol, Library strategy, Library source, Library selection, Instrument model and Platform ID.
+10. Combine the 3 Seurat objects together:
+- Create a list of the Seurat objects 
+- Select integration features across all Seurat Objects based on the variable features found in step 4
+- Combine the data using the 'FindIntegrationAnchors' and "IntegrateData" functions, specifying the integration features and dimensions
+- Store the integrated data in 'combined.integrated' 
+11. Preform quality control on the combined data 
+- Inside the function, define patterns for mitochondrial and ribosomal protein genes based on the species.
+- Calculate QC metrics such as total features, expressed features, and mitochondrial gene percentage.
+- Filter out low-quality cells based on the defined criteria.
+12. Scale the combined data to perform PCA 
+13. Generate UMAP and TSNE coordinates using 'RunUMAP' and 'RunTSNE', embed them into the metadata 
+14. Find the nearest neighbors and cluster the combined data 
+15. Perform cell type annotation: 
+- Use SingleR to annotate cell types beased on gene expression profiles 
+- The reference database used are: 
+-- Human Primary Cell Atlas Data, Database Immune Cell Expression Data, Blueprint Encode Data, Monaco Immune Data, Novershtern Hematopietic Data
+16. Save the combined data as a h5 compliant seurat object using 'SaveH5Seurat' 
+17. Set the identify to the manually curated annotations then subset each cell type
+
+Note: The protocol assumes that the necessart input files(matrix, barcoed features and metadata) are acailable in the specificed filed paths. 
+
 ### Output File 
 - Scaled count matrix
 - Raw count matrix 

@@ -72,9 +72,12 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 | Single R| hpca.fine |
 | Single R| dice.main |
 | Single R| dice.fine |
-
-
-
+| Single R| monacco.main |
+| Single R| monacco.fine |
+| Single R| nothern.main |
+| Single R| nothern.fine |
+| Single R| blue.main  |
+| Single R| blue.fine |
 
 ## Post Processsing: H5-ISCVA compliant file 
 ### Input File 

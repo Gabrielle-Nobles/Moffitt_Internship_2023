@@ -52,7 +52,8 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 3. Doublets (pANN and DF.classfication) 
 4. Resoulutions (integrated_snn_res or RNA_snn_res) 
 5. Umap and Tsne coordinates 
-6. Single R annotations 
+6. Single R annotations
+   
 | Programs  | Column Names |
 | ------------- | ------------- |
 | Single R | hpca.main |

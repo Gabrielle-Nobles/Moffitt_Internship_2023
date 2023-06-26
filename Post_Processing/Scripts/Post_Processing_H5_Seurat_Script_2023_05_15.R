@@ -172,7 +172,7 @@ folder_path <- paste0(output_dir, "/", num_cells, "_matrix")
 dir.create(folder_path, showWarnings = FALSE)
 
 # Iterate over columns of the subset Seurat object
-for (i in seq_len(ncol(subset_seurat_obj))) {
+for (i in seq_len(ncol(seurat_obj))) {
   # Randomly sample cells
   random_cells <- sample(1:nrow(seurat_obj), size = num_cells, replace = FALSE)
   subset_seurat_obj <- seurat_obj[random_cells, ]

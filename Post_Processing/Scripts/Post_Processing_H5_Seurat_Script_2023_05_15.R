@@ -181,7 +181,7 @@ for (i in seq_len(ncol(seurat_obj))) {
   if ("integrated" %in% colnames(subset_seurat_obj@assays[[i]])) {
     # If 'integrated' assay is available, retrieve the scaled data
     int_scaled_matrix <- as.data.frame(subset_seurat_obj@assays[[i]]@scale.data)
-    scaled_counts <- as.data.frame(subset_seurat_obj@assays[[i]]@scale.data)
+    #scaled_counts <- as.data.frame(subset_seurat_obj@assays[[i]]@scale.data)
   } else {
     # If 'integrated' assay is not available, retrieve the scaled RNA data
     int_scaled_matrix <- NULL

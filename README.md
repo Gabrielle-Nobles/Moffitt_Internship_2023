@@ -53,7 +53,16 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 4. Resoulutions (integrated_snn_res or RNA_snn_res) 
 5. Umap and Tsne coordinates 
 6. Single R annotations
-   
+7. Manually curated cell annotations (seurat_clusters_gabby_annotations) 
+- **H5 Seurat-compliant file** 
+-- Export the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
+- **Subset of cell populations**
+--Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
+- **H5 ISCVA-compliant file** 
+--The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
+
+### Single R Annotations Columns 
+
 | Programs  | Column Names |
 | ------------- | ------------- |
 | Single R | hpca.main |
@@ -66,13 +75,7 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 | Single R| nothern.fine |
 | Single R| blue.main  |
 | Single R| blue.fine |
-7. Manually curated cell annotations (seurat_clusters_gabby_annotations) 
-- **H5 Seurat-compliant file** 
--- Export the processed and analyzed data in the H5 Seurat file format. This file contains the expression values, dimensionality reduction results, clustering information, and metadata. It serves as a comprehensive representation of the analyzed single-cell RNAseq data.
-- **Subset of cell populations**
---Create separate metadata and H5 Seurat files for each identified cell subpopulation or cluster. This division facilitates downstream analyses focused on specific cell populations of interest.
-- **H5 ISCVA-compliant file** 
---The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
+
 
 
 ## Post Processsing: H5-ISCVA compliant file 

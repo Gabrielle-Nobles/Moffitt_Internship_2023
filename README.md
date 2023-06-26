@@ -66,6 +66,16 @@ To achieve accurate results in single-cell RNA sequencing (scRNAseq) analysis, i
 - **H5 ISCVA-compliant file** 
 --The H5 ISCVA-compliant file is a specific file format designed to load and interact with the Interactive Single Cell Visual Analytics (ISCVA) application. 
 
+| Programs  | Column Names |
+| ------------- | ------------- |
+| Single R | hpca.main |
+| Single R| hpca.fine |
+| Single R| dice.main |
+| Single R| dice.fine |
+
+
+
+
 ## Post Processsing: H5-ISCVA compliant file 
 ### Input File 
 - H5 seurat object 

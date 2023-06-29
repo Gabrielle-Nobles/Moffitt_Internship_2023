@@ -80,7 +80,7 @@ for (cluster_id in clusters) {
   
   print(paste("Finding marker genes for cluster", cluster_id))
   
-  # use the FindMarker() function to get the top 10 marker genes
+  # use the FindMarker() function to get the gene markers
   unfiltered_markers <- FindMarkers(object = seurat_obj, ident.1 = cluster_id, min.pct = .25 )
   
   upreg_markers <- unfiltered_markers[unfiltered_markers$p_val_adj < 0.05, ]

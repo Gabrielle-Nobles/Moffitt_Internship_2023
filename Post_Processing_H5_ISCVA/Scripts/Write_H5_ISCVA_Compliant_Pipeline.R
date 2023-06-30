@@ -6,7 +6,7 @@
 ## Set local Github repository as working directory
 setwd("Single_Cell_Brain_Tumor_Atlas/Post_Processing_H5_ISCVA")
 ## Load Functions from Customized ISCVAM H5 File
-source("Script/Generate_ISCVAM_H5.R")
+source("Script/Generate_ISCVA_H5.R")
 
 ## Desired project name
 Project_Name <- "GSE84465_GBM"

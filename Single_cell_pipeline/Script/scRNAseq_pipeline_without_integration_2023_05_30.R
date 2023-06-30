@@ -1,32 +1,41 @@
 
-# Load required libraries
-library(dplyr)  # Data manipulation
-library(Seurat)  # Single-cell RNA-seq analysis
-library(patchwork)  # Plotting
-library(readr)  # Reading data
-library(SingleR)  # Cell type annotation
-library(DoubletFinder)  # Doublet detection
-library(Matrix)  # Sparse matrix operations
-library(fields)  # Spatial data analysis
-library(SeuratDisk)  # Saving Seurat objects
-library(SeuratData)  # Example datasets
-library(SingleCellExperiment)  # Working with single-cell data
-library(celldex)  # Cell type reference databases
 
-#####---- Parameter for loading in file ----####
+
+
+####---- User Input ----####
+
+## Set local Github repository as working directory
+setwd("Single_Cell_Brain_Tumor_Atlas/Single_cell_pipeline")
+
+## Desired project name
+Project_Name <- "GSE84465_GBM"
 
 # Define the path to the count file
-# Specify the input folder path
-input_folder <- "/home/80023619/Moffitt_Internship_2023_02_13/scRNAseq_analysis/Input/"
+Count_file <- "Input/GSE84465_GBM_All_data.csv.gz"
 
-# Specify the file name
-file_name <- "GSE84465_GBM_All_data.csv.gz"
+# Specify the output folder path
+output_folder <- "Output/"
 
-# Define the count file path
-count_file <- file.path(input_folder, file_name)
+
+
+
+
+
+####---- Load Packages ----####
+
+packages <- c("dplyr","Seurat","patchwork","readr","DoubletFinder","celldex","Matrix",
+              "fields","SeuratDisk","SeuratData","SingleR","SingleCellExperiment")
+invisible(lapply(packages, library, character.only = TRUE))
+
+
+
+
+
+
+####---- Run Script ----####
 
 # Read the count file
-counts <- read.csv2(count_file, sep = "", header = TRUE, row.names = 1)
+counts <- read.csv2(Count_file, sep = "", header = TRUE, row.names = 1)
 
 # Define a function for quality control (QC) using Seurat
 qc.seurat <- function(seurat, species, nFeature) {
@@ -134,19 +143,17 @@ seurat_obj@meta.data$tSNE_1 <- tsne$tSNE_1
 seurat_obj@meta.data$tSNE_2 <- tsne$tSNE_1
 
 
-# Specify the output folder path
-output_folder <- "/home/80023619/Moffitt_Internship_2023_02_13/scRNAseq_analysis/Output/"
 
 # Write metadata to a file
-write.table(seurat_obj@meta.data, file = file.path(output_folder, "GSE84465_metafile_with_annotation.txt"),
+write.table(seurat_obj@meta.data, file = file.path(output_folder, paste0(Project_Name,"_metafile_with_annotation.txt")),
             sep = "\t")
 
 # Write scaled count matrix to a file
-write.table(scaled_count, file = file.path(output_folder, "GSE84465_scaled_count_matrix.txt"),
+write.table(scaled_count, file = file.path(output_folder, paste0(Project_Name,"_scaled_count_matrix.txt")),
             sep = "\t")
 
 # Write seurat H5 file 
-SaveH5Seurat(seurat_obj, filename = file.path(output_folder, "GSE84465_h5friendly"),
+SaveH5Seurat(seurat_obj, filename = file.path(output_folder, paste0(Project_Name,"_h5friendly")),
              overwrite = TRUE, verbose = TRUE)
 
 
@@ -154,20 +161,20 @@ SaveH5Seurat(seurat_obj, filename = file.path(output_folder, "GSE84465_h5friendl
 Idents(seurat_obj) <- "seurat_clusters_gabby_annotation"
 
 myeloid_subset <- subset(x = seurat_obj, idents = "Myeloid")
-write.table(myeloid_subset@meta.data, file = file.path(output_folder, "GSE84465_myeloid_metafiles.txt"),
+write.table(myeloid_subset@meta.data, file = file.path(output_folder, paste0(Project_Name,"_myeloid_metafiles.txt")),
             sep = "\t")
 
 # Save myeloid subset as H5Seurat object
-SaveH5Seurat(myeloid_subset, filename = file.path(output_folder, "GSE84465_myeloid_h5friendly"),
+SaveH5Seurat(myeloid_subset, filename = file.path(output_folder, paste0(Project_Name,"_myeloid_h5friendly")),
              overwrite = TRUE, verbose = TRUE)
 
 # Subset and write metadata for tumor cells
 tumor_subset <- subset(x = seurat_obj, idents = "Tumor")
-write.table(tumor_subset@meta.data, file = file.path(output_folder, "GSE84465_tumor_metafiles.txt"),
+write.table(tumor_subset@meta.data, file = file.path(output_folder, paste0(Project_Name,"_tumor_metafiles.txt")),
             sep = "\t")
 
 # Save tumor subset as H5Seurat object
-SaveH5Seurat(tumor_subset, filename = file.path(output_folder, "GSE84465_tumor_h5friendly"),
+SaveH5Seurat(tumor_subset, filename = file.path(output_folder, paste0(Project_Name,"_tumor_h5friendly")),
              overwrite = TRUE, verbose = TRUE)
 
 

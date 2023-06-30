@@ -8,13 +8,13 @@
 ####---- User Input ----####
 
 ## Set local Github repository as working directory
-setwd("~/R/Single_Cell_Brain_Tumor_Atlas/Post_Processing")
+setwd("Single_Cell_Brain_Tumor_Atlas/Post_Processing")
 
 ## Desired project name
-Project_Name <- "GSE116256_AMLscRNA"
+Project_Name <- "GSE162631_merge_tumor_peri_macrophage"
 
 ## Seurat H5 file
-h5_file <- "Input/GSE116256_AMLscRNA_h5friendly.h5seurat"
+h5_file <- "Input/GSE162631_merge_tumor_peri_macrophage.h5seurat"
 
 ## Specify the output folder path
 output_folder <- "Output/"
